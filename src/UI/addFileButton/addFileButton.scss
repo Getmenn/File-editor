@@ -1,0 +1,16 @@
+.addFileWrapper{
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    svg{
+        cursor: pointer;
+        &:hover{
+            & path{
+                stroke: #3d5262;
+            }
+        }
+        
+    }
+}

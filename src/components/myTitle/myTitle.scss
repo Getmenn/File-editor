@@ -1,0 +1,23 @@
+
+.title{
+    height: 85px;
+    border-bottom: 1px solid #00000073;
+    padding-left: 30px;
+    display: flex;
+    align-items: center;
+
+    input{
+        font-size: 29px;
+        font-weight: 600;
+        border: none;
+        height: 45px;
+        padding-left: 6px;
+        outline: none;
+    }
+
+    img{
+        cursor: pointer;
+        height: 30px;
+        width: 30px;
+    }
+}
