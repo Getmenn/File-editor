@@ -23,10 +23,10 @@
 
 ## Screenshots
 
-![screenshot](https://github.com/Getmenn/File-editor/tree/master/src/assets/screenshots/Screenshot_1.jpg)
-![screenshot](https://github.com/Getmenn/File-editor/tree/master/src/assets/screenshots/Screenshot_2.jpg)
+![screenshot](https://github.com/Getmenn/File-editor/blob/master/src/assets/screenshots/Screenshot_1.jpg)
+![screenshot](https://github.com/Getmenn/File-editor/blob/master/src/assets/screenshots/Screenshot_2.jpg)
 
 ## Site
 
-link: https://getmenn.github.io/File-editor/
+Does not work without json-server
 
