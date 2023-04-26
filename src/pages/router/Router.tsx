@@ -6,14 +6,18 @@ const Router: React.FC = () => {
     
     const router = createBrowserRouter([
         {
-            path: "/",
+            path: "/File-editor",
             element: <FileBlockArray />,
             errorElement: <h1>404 Error!</h1>,
         },
         {
-            path: "file/:id",
+            path: "/File-editor/file/:id",
             element: <FilePage />,
             errorElement: <h1>404 Error!</h1>,
+        },
+        {
+            path: "*",
+            element: <h1>Oops! There is no such page</h1>,
         },
     ]);
 

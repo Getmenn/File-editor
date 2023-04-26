@@ -21,7 +21,7 @@ const FilePage: React.FC = () => {
     const contentEditableRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        setIdFile(Number(location.pathname.split('/')[2])) //загрузка номера активной страницы
+        setIdFile(Number(location.pathname.split('/')[3])) //загрузка номера активной страницы
     }, [location.pathname])
     
     useEffect(() => {
@@ -39,7 +39,7 @@ const FilePage: React.FC = () => {
     const loadActivPage = async () => { 
         let id: number 
 
-        !idFile ? id = Number(location.pathname.split('/')[2]) : id = idFile
+        !idFile ? id = Number(location.pathname.split('/')[3]) : id = idFile
         
         if (id !== null) {
             const activFile = files.find(el => el.id === id)
@@ -84,7 +84,7 @@ const FilePage: React.FC = () => {
             </div>
             
             <div className="buttonWrapper">
-                <MyButton name='Назад' handleClick={() => navigate("/")}/>
+                <MyButton name='Назад' handleClick={() => navigate("/File-editor")}/>
                 <MyButton name='Сохранить' handleClick={saveChanges} />
             </div>
         </div>

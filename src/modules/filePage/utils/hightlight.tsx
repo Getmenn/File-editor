@@ -1,3 +1,4 @@
+import React from "react"
 
 const hightlight = (filter: string, str: string ) => {
     
@@ -9,7 +10,13 @@ const hightlight = (filter: string, str: string ) => {
       return str.split(regexp).map((s, index, array) => {
         if (index < array.length - 1) {
           const c = matchValue.shift()       
-          return <>{s}<span key={index} className={'hightlight'}>{c}</span></>
+          return (
+            <React.Fragment key={index}>
+              {s}
+              <span className={'hightlight'}>
+                {c}
+              </span>
+          </React.Fragment>) 
         }
         return s
       })

@@ -23,8 +23,8 @@ const FileBlockArray: React.FC = () => {
     },[files])
 
     
-    useEffect(() => {
-        if (location.pathname.length === 1) {
+    useEffect(() => {      
+        if (location.pathname === '/File-editor') {
             dispatch(changeActivFile(null))
         }
     },[])
