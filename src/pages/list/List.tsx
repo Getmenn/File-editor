@@ -1,4 +1,4 @@
-import { MyTitle } from "../../components/myTitle/MyTitle"
+import { MyTitle } from "../../modules/myTitle/MyTitle"
 import { Router } from "../router/Router"
 import './list.scss'
 

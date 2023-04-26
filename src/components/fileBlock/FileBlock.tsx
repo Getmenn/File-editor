@@ -1,6 +1,6 @@
 import './fileBlock.scss';
-import pencil from '../assets/pencil.svg';
-import deleteIcon from '../assets/delete.svg';
+import pencil from '../../assets/pencil.svg';
+import deleteIcon from '../../assets/delete.svg';
 import { NavLink } from 'react-router-dom';
 import { useActions } from '../../store/hooks/useActions';
 

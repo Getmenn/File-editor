@@ -1,11 +1,10 @@
-
-.title{
-    height: 85px;
-    border-bottom: 1px solid #00000073;
-    padding-left: 30px;
+.myTitleLabel{
+    max-width: 100%;
     display: flex;
-    align-items: center;
-
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 0 20px;
+    
     input{
         font-size: 29px;
         font-weight: 600;
@@ -13,7 +12,7 @@
         height: 45px;
         padding-left: 6px;
         outline: none;
-        max-width: 80%;
+        max-width: 100%;
     }
 
     img{
@@ -24,10 +23,9 @@
 }
 
 @media (max-width: 400px){
-    .title{
+    .myTitleLabel{
         input{
-            font-size: 22px;
-            
+            font-size: 21px;
         }
     }
 }

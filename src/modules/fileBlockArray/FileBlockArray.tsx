@@ -9,7 +9,7 @@ import { AddFileBlock } from '../../components/addFileBlock/AddFileBlock'
 import { useActions } from '../../store/hooks/useActions'
 import { Loader } from '../../UI/loader/Loader'
 
-const FileBlockArray: React.FC = () => { //возможно нужно переместить в компоненты
+const FileBlockArray: React.FC = () => {
     
     const {files} = useTypedSelector(state => state.main)
     const dispatch = useDispatch()

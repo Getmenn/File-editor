@@ -4,6 +4,7 @@ import { loadTypes, actionsTypes, IStateСyber } from './types';
 const defaultState: IStateСyber = {
     files: [],
     activFile: null,
+    searchWord: ''
 }
 
 export const mainReducer = (state = defaultState, action: actionsTypes ): IStateСyber =>{ 
@@ -28,6 +29,8 @@ export const mainReducer = (state = defaultState, action: actionsTypes ): IState
                     el.id === action.payload.id ? { ...el, name: action.payload.newName } : el
                 )
             }
+        case loadTypes.CHANGE_SEARCH_WORD:
+            return { ...state, searchWord: action.payload}
         default:
             return state
     }   
@@ -38,6 +41,7 @@ export const changeActivFile = (payload: IFiles | null) => ({ type: loadTypes.CH
 export const reloadFile = (id: number, newContent: string) => ({ type: loadTypes.RELOAD_FILE, payload: { id, newContent } }) 
 export const deleteFile = (payload: number) => ({ type: loadTypes.DELETE_FILE, payload }) 
 export const addFile = (payload: number) => ({ type: loadTypes.ADD_FILE, payload}) 
-export const changeNameFile = (id: number, newName: string) => ({ type: loadTypes.CHANGE_NAME_FILE, payload: {id, newName} }) 
+export const changeNameFile = (id: number, newName: string) => ({ type: loadTypes.CHANGE_NAME_FILE, payload: { id, newName } }) 
+export const changeSearchWord = (payload: string) => ({ type: loadTypes.CHANGE_SEARCH_WORD, payload}) 
 
 

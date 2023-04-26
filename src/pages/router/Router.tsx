@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { FileBlockArray } from "../../modules/fileBlockArray/FileBlockArray";
-import { FilePage } from "../../components/filePage/FilePage";
+import { FilePage } from "../../modules/filePage/FilePage";
 
 const Router: React.FC = () => {
     

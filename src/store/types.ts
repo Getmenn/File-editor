@@ -1,6 +1,7 @@
 export interface IStateСyber{
     files: [] | IFiles[],
     activFile: null | IFiles,
+    searchWord: string
 }
 
 export enum loadTypes{
@@ -9,7 +10,8 @@ export enum loadTypes{
     RELOAD_FILE = 'RELOAD_FILE',
     DELETE_FILE = 'DELETE_FILE',
     ADD_FILE = 'ADD_FILE',
-    CHANGE_NAME_FILE = 'CHANGE_NAME_FILE'
+    CHANGE_NAME_FILE = 'CHANGE_NAME_FILE',
+    CHANGE_SEARCH_WORD = 'CHANGE_SEARCH_WORD'
 }
 
 interface loadFiles{
@@ -49,8 +51,13 @@ interface changeNameFile{
     }
 }
 
+interface changeSearchWord{
+    type: loadTypes.CHANGE_SEARCH_WORD;
+    payload: string;
+}
 
-export type actionsTypes = loadFiles | changeActivFile | reloadFile | deleteFile | addFile | changeNameFile;
+
+export type actionsTypes = loadFiles | changeActivFile | reloadFile | deleteFile | addFile | changeNameFile | changeSearchWord;
 
 ////////////////
 

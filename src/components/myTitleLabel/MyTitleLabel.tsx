@@ -1,10 +1,10 @@
 import { useState, useEffect, KeyboardEvent  } from 'react';
 import { useTypedSelector } from '../../store/hooks/useTypeSelector';
-import pencil from '../assets/pencil.svg';
-import './myTitle.scss';
+import pencil from '../../assets/pencil.svg';
 import { useActions } from '../../store/hooks/useActions';
+import './myTitleLabel.scss';
 
-const MyTitle: React.FC = () => {
+const MyTitleLabel: React.FC = () => {
 
     const [editStatus, setEditStatus] = useState<boolean>(false)
     const [newTitle, setNewTitle] = useState<string>("Файловый менеджер")
@@ -35,7 +35,7 @@ const MyTitle: React.FC = () => {
     }
 
     return (
-        <div className="title">
+        <div className="myTitleLabel">
             <input
                 type="text"
                 value={newTitle}
@@ -53,8 +53,8 @@ const MyTitle: React.FC = () => {
                 />
                 : undefined
             }
-        </div>        
+        </div>  
     )
 }
 
-export {MyTitle}
+export {MyTitleLabel}
