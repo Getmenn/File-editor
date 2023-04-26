@@ -1,13 +1,13 @@
 import { useEffect } from 'react'
 import { FileBlock } from "../../components/fileBlock/FileBlock" 
 import { useDispatch } from 'react-redux'
-import { changeActivFile, loadFiles } from '../store/mainReducer'
-import { useTypedSelector } from '../store/hooks/useTypeSelector'
+import { changeActivFile } from '../../store/mainReducer'
+import { useTypedSelector } from '../../store/hooks/useTypeSelector'
 import { useLocation } from 'react-router-dom'
 import './fileBlockArray.scss'
 import { AddFileBlock } from '../../components/addFileBlock/AddFileBlock'
-import { cyberApi } from './api/filesApi'
-import { useActions } from '../store/hooks/useActions'
+import { useActions } from '../../store/hooks/useActions'
+import { Loader } from '../../UI/loader/Loader'
 
 const FileBlockArray: React.FC = () => { //возможно нужно переместить в компоненты
     
@@ -33,14 +33,21 @@ const FileBlockArray: React.FC = () => { //возможно нужно пере�
     return (
         <>
             <div className="filesWrapper">
-                {files.map(file =>
-                    <FileBlock
-                        key={file.id}
-                        name={file.name}
-                        id = {file.id}
-                    />
-                )}
-                <AddFileBlock />
+                {!files.length
+                    ? <Loader />
+                    :
+                        <>
+                            {files.map(file =>
+                                <FileBlock
+                                    key={file.id}
+                                    name={file.name}
+                                    id = {file.id}
+                                />
+                            )}
+                            <AddFileBlock />
+                        </>
+                }
+                
             </div>
         </> 
     )

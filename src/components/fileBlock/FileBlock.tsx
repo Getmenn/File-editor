@@ -2,10 +2,7 @@ import './fileBlock.scss';
 import pencil from '../assets/pencil.svg';
 import deleteIcon from '../assets/delete.svg';
 import { NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { deleteFile } from '../../modules/store/mainReducer';
-import { cyberApi } from '../../modules/fileBlockArray/api/filesApi';
-import { useActions } from '../../modules/store/hooks/useActions';
+import { useActions } from '../../store/hooks/useActions';
 
 interface IFileBlock{
     name: string;

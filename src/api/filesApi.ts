@@ -1,17 +1,15 @@
-import { IFiles } from "../../types";
-import { main } from "./Api";
-import { AxiosResponse } from 'axios';
 
+import { IFiles } from "../store/types";
+import { main } from "./Api";
 
 interface ICyberApi {
-    getfiles: () => IFiles[];
+    getfiles: () => Promise<IFiles[]>; // Метод getfiles возвращает Promise с массивом объектов типа IFiles
+    deletefile: (id: number) => Promise<void>; 
+    addFile: (id: number, newFile: IFiles) => Promise<void>; 
+    reloadFile: (id: number, contentFile: IFiles) => Promise<void>; 
 }
 
-interface IFilesResponse{
-    data: IFiles[]
-}
-
-export const cyberApi  = {
+export const cyberApi: ICyberApi  = {
     getfiles: async () => { 
         try {
             const {data} = await main.get<IFiles[]>('dataFiles');
@@ -24,8 +22,7 @@ export const cyberApi  = {
     },
     deletefile: async (id: number) => { 
         try {
-            const {data} = await main.delete(`dataFiles/${id}`);
-            return data; 
+            main.delete(`dataFiles/${id}`); 
         }
         catch (error) {
             console.error(error);

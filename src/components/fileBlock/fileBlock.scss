@@ -27,8 +27,27 @@
             width: 35px;
         }
 
-        img:last-of-type{
+        a+img{
             margin-left: 20px;
+        }
+    }
+}
+
+@media (max-width: 400px){
+    .file{
+        a{
+            font-size: 17px;
+        }
+
+        .editBox{
+            img{
+                height: 30px;
+                width: 30px;
+            }
+
+            a+img{
+                margin-left: 8px;
+            }
         }
     }
 }

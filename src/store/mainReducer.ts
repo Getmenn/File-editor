@@ -1,4 +1,5 @@
-import { loadTypes, actionsTypes, IStateСyber, IFiles } from './../types';
+import { IFiles } from './types';
+import { loadTypes, actionsTypes, IStateСyber } from './types';
 
 const defaultState: IStateСyber = {
     files: [],

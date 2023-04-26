@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { MyButton } from '../../UI/myButton/MyButton'
-import { useTypedSelector } from '../../modules/store/hooks/useTypeSelector'
+import { useTypedSelector } from '../../store/hooks/useTypeSelector'
 import './filePage.scss'
 import { useDispatch } from 'react-redux'
-import { changeActivFile, reloadFile } from '../../modules/store/mainReducer'
-import { useActions } from '../../modules/store/hooks/useActions'
-
+import { changeActivFile } from '../../store/mainReducer'
+import { useActions } from '../../store/hooks/useActions'
+import { Loader } from '../../UI/loader/Loader'
 
 const FilePage: React.FC = () => {
 
@@ -35,8 +35,12 @@ const FilePage: React.FC = () => {
     },[files])
 
     const loadActivPage = async () => { 
-        if (idFile !== null) {
-            const activFile = files.find(el => el.id === idFile)
+        let id: number 
+
+        !idFile ? id = Number(location.pathname.split('/')[2]) : id = idFile
+        
+        if (id !== null) {
+            const activFile = files.find(el => el.id === id)
             if (activFile) {
                 dispatch(changeActivFile(activFile)) // занесение активной страницы в стор
                 setContentFile(activFile?.content) // заносим в стейт тект файла
@@ -54,11 +58,18 @@ const FilePage: React.FC = () => {
     return (
         <div className='filePage'>
 
-            <textarea
-                value={contentFile !== '' ? contentFile : 'Добавьте текст'}
-                onChange={e => setContentFile(e.target.value)}
-            ></textarea>
-
+            <div className="textareaWrapper">
+                {!activFile
+                    ? <Loader />
+                    : <textarea
+                        value={contentFile !== '' ? contentFile : undefined}
+                        placeholder='Добавьте текст'
+                        onChange={e => setContentFile(e.target.value)}
+                    >
+                    </textarea>
+                } 
+            </div>
+            
             <div className="buttonWrapper">
                 <MyButton name='Назад' handleClick={() => navigate("/")}/>
                 <MyButton name='Сохранить' handleClick={saveChanges} />

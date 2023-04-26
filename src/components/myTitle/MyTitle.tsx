@@ -1,8 +1,8 @@
 import { useState, useEffect, KeyboardEvent  } from 'react';
-import { useTypedSelector } from '../../modules/store/hooks/useTypeSelector';
+import { useTypedSelector } from '../../store/hooks/useTypeSelector';
 import pencil from '../assets/pencil.svg';
 import './myTitle.scss';
-import { useActions } from '../../modules/store/hooks/useActions';
+import { useActions } from '../../store/hooks/useActions';
 
 const MyTitle: React.FC = () => {
 

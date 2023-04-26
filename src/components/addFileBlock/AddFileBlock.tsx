@@ -1,9 +1,6 @@
-import { useDispatch } from 'react-redux'
 import { AddFileButton } from '../../UI/addFileButton/AddFileButton'
-import { addFile } from '../../modules/store/mainReducer'
-import './addFileBlock.scss'
-import { useTypedSelector } from '../../modules/store/hooks/useTypeSelector'
-import { useActions } from '../../modules/store/hooks/useActions'
+import { useTypedSelector } from '../../store/hooks/useTypeSelector'
+import { useActions } from '../../store/hooks/useActions'
 
 const AddFileBlock: React.FC = () => {
 

@@ -1,8 +1,8 @@
 import { addFile, changeNameFile, deleteFile, loadFiles, reloadFile } from '../mainReducer';
-import { Dispatch, AnyAction } from 'redux';
-import { IFiles, actionsTypes, loadTypes } from '../../types';
-import { ThunkAction, ThunkDispatch } from 'redux-thunk'
-import { cyberApi } from '../../fileBlockArray/api/filesApi';
+import {  AnyAction } from 'redux';
+import { IFiles }  from '../types';
+import { ThunkDispatch } from 'redux-thunk'
+import { cyberApi } from '../../api/filesApi';
 
 export const loadFilesT = () => {
     return async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => { 

@@ -52,7 +52,7 @@ interface changeNameFile{
 
 export type actionsTypes = loadFiles | changeActivFile | reloadFile | deleteFile | addFile | changeNameFile;
 
-/////////////////////////////
+////////////////
 
 export interface IFiles{
     name: string;

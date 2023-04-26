@@ -1,11 +1,11 @@
 import './index.scss'
-import { Body } from './pages/body/Body'
+import { List } from './pages/list/List'
 
 const App: React.FC = () => {
 
     return (
         <div className='wrapper'>
-            <Body />
+            <List />
         </div>
     )
 }

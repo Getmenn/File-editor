@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { FileBlockArray } from "../../modules/fileBlockArray/FileBlockArray";
-import { FilePage } from "../filePage/FilePage";
+import { FilePage } from "../../components/filePage/FilePage";
 
 const Router: React.FC = () => {
     
@@ -11,7 +11,7 @@ const Router: React.FC = () => {
             errorElement: <h1>404 Error!</h1>,
         },
         {
-            path: "file/:contactId",
+            path: "file/:id",
             element: <FilePage />,
             errorElement: <h1>404 Error!</h1>,
         },
