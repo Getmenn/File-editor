@@ -1,15 +1,16 @@
 import { useState, useEffect, KeyboardEvent  } from 'react';
-import { useTypedSelector } from '../../store/hooks/useTypeSelector';
 import pencil from '../../assets/pencil.svg';
-import { useActions } from '../../store/hooks/useActions';
 import './myTitleLabel.scss';
+import { useAppSelector } from '../../store/hooks/redux';
+import { fileApi } from '../../store/services/FilesService';
 
 const MyTitleLabel: React.FC = () => {
 
     const [editStatus, setEditStatus] = useState<boolean>(false)
     const [newTitle, setNewTitle] = useState<string>("Файловый менеджер")
-    const { activFile } = useTypedSelector(state => state.main);
-    const {changeNameFileT} = useActions()
+    const { activFile } = useAppSelector(state => state.FileSlice)
+    const [reloadFile, {}] = fileApi.useReloadFileMutation()
+    
 
     useEffect(() => {
         activFile ? setNewTitle(activFile?.name) : setNewTitle("Файловый менеджер")  
@@ -24,7 +25,7 @@ const MyTitleLabel: React.FC = () => {
         setEditStatus(!editStatus)
 
         if (editStatus && activFile) {
-            changeNameFileT(activFile.id, newTitle, activFile)
+            reloadFile({...activFile, name: newTitle})
         }
     }
 
@@ -32,7 +33,7 @@ const MyTitleLabel: React.FC = () => {
         if (editStatus && event.key === 'Enter') {
             handleSaveTitle()
         } 
-    }
+    }  
 
     return (
         <div className="myTitleLabel">

@@ -1,16 +1,15 @@
 import { AddFileButton } from '../../UI/addFileButton/AddFileButton'
-import { useTypedSelector } from '../../store/hooks/useTypeSelector'
-import { useActions } from '../../store/hooks/useActions'
+import { fileApi } from '../../store/services/FilesService'
 
 const AddFileBlock: React.FC = () => {
 
-    const { files } = useTypedSelector(state => state.main)
-    const {addFileT} = useActions()
+    const {data: files} = fileApi.useGetFilesQuery(null)
+    const [addFile, {}] = fileApi.useAddFileMutation() 
 
     const addFileBlock = () => {
         let newId  = 0
-        files.forEach(el => el.id > newId ? newId = el.id : undefined) // ищем максимальный id
-        addFileT(newId + 1) 
+        files && files.forEach(el => el.id > newId ? newId = el.id : undefined) // ищем максимальный id
+        addFile({name: `new file ${newId + 1}`, id: newId + 1, content: ''}) 
     }
 
     return (

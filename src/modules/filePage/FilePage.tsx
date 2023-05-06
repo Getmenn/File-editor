@@ -1,23 +1,23 @@
 import { useEffect, useState, useRef, useCallback } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { MyButton } from '../../UI/myButton/MyButton'
-import { useTypedSelector } from '../../store/hooks/useTypeSelector'
-import { useDispatch } from 'react-redux'
-import { changeActivFile } from '../../store/mainReducer'
-import { useActions } from '../../store/hooks/useActions'
 import { Loader } from '../../UI/loader/Loader'
 import { hightlight } from './utils/hightlight'
 import './filePage.scss'
+import { useAppDispatch, useAppSelector } from '../../store/hooks/redux'
+import { fileApi } from '../../store/services/FilesService'
+import { fileSlice } from '../../store/reducers/FileSlice'
 
 const FilePage: React.FC = () => {
 
     const [idFile, setIdFile] = useState<number | null>(null)
     const [contentFile, setContentFile] = useState<string | null>(null)
-    const { files, activFile, searchWord } = useTypedSelector(state => state.main) 
-    const dispatch = useDispatch()
+    const { activFile, searchWord } = useAppSelector(state => state.FileSlice)
+    const dispatch = useAppDispatch()
     const location = useLocation()
     const navigate = useNavigate()
-    const { reloadFileT, loadFilesT } = useActions()
+    const [reloadFile, { }] = fileApi.useReloadFileMutation()
+    const { data: files } = fileApi.useGetFilesQuery(null)
     const contentEditableRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
@@ -26,12 +26,12 @@ const FilePage: React.FC = () => {
     
     useEffect(() => {
         const load = async () => {
-            if (!files.length) { //если страницу обновили
+            /* if (files && !files.length) { //если страницу обновили
                 loadFilesT() 
-            }
-            else {
-                loadActivPage() //занесение активной страницы в стор
-            }
+            } */
+            
+            loadActivPage() //занесение активной страницы в стор
+            
         }
         load()
     },[files])
@@ -41,18 +41,18 @@ const FilePage: React.FC = () => {
 
         !idFile ? id = Number(location.pathname.split('/')[3]) : id = idFile
         
-        if (id !== null) {
+        if (files && id !== null) {
             const activFile = files.find(el => el.id === id)
             if (activFile) {
-                dispatch(changeActivFile(activFile)) // занесение активной страницы в стор
+                dispatch(fileSlice.actions.changeActivFile(activFile)) // занесение активной страницы в стор
                 setContentFile(activFile?.content) // заносим в стейт тект файла
             }  
         }
     }
 
     const saveChanges = () => { //сохранить файл
-        if (activFile && idFile !== null && contentEditableRef.current) {
-            reloadFileT(idFile, contentEditableRef.current?.outerText, activFile)
+        if (activFile && idFile !== null && contentEditableRef.current && files) {
+            reloadFile({...activFile, content: contentEditableRef.current?.outerText})
         }
     }    
 

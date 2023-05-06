@@ -2,7 +2,7 @@ import './fileBlock.scss';
 import pencil from '../../assets/pencil.svg';
 import deleteIcon from '../../assets/delete.svg';
 import { NavLink } from 'react-router-dom';
-import { useActions } from '../../store/hooks/useActions';
+import { fileApi } from '../../store/services/FilesService';
 
 interface IFileBlock{
     name: string;
@@ -11,10 +11,10 @@ interface IFileBlock{
 
 const FileBlock: React.FC<IFileBlock> = ({ name, id }) => {
 
-    const {deleteFileT} = useActions()
+    const [deleteFile, {}] = fileApi.useDeleteFileMutation()
     
     const handleDelete = () => {
-        deleteFileT(id)     
+        deleteFile(id)     
     }
 
     return (

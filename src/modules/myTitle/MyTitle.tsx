@@ -1,11 +1,11 @@
 import './myTitle.scss';
 import { TextSearch } from '../../components/textSearch/TextSearch';
 import { MyTitleLabel } from '../../components/myTitleLabel/MyTitleLabel';
-import { useTypedSelector } from '../../store/hooks/useTypeSelector';
+import { useAppSelector } from '../../store/hooks/redux';
 
 const MyTitle: React.FC = () => {
 
-    const { activFile } = useTypedSelector(state => state.main);
+    const { activFile} = useAppSelector(state => state.FileSlice)
 
     return (
         <div className="title">

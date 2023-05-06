@@ -1,14 +1,14 @@
 import { MySearchInput } from '../../UI/mySearchInput/MySearchInput'
 import './textSearch.scss'
-import { useDispatch } from 'react-redux'
-import { changeSearchWord } from '../../store/mainReducer'
+import { useAppDispatch } from '../../store/hooks/redux'
+import { fileSlice } from '../../store/reducers/FileSlice'
 
 const TextSearch: React.FC = () => {
 
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     const setSearchText = (event: React.FormEvent<HTMLInputElement>) => {
-        dispatch(changeSearchWord(event.currentTarget.value)) 
+        dispatch(fileSlice.actions.changeSearchWord(event.currentTarget.value)) 
     }
 
     return (
