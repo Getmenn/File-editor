@@ -1,6 +1,6 @@
 # File-editor
 
-![](https://img.shields.io/npm/v/react?label=React&style=flat-square) ![](https://img.shields.io/npm/v/sass?label=sass&style=flat-square) ![](https://img.shields.io/npm/v/react-redux?label=React-redux&style=flat-square) ![](https://img.shields.io/npm/v/axios?label=axios&style=flat-square) ![] (https://img.shields.io/npm/v/@reduxjs/toolkit?color=%D0%BF%D0%BA%D1%83%D1%83%D1%82&label=redux-toolki%D0%B5&logo=redux-toolki%D0%B5&style=flat-square)![](https://img.shields.io/npm/v/typescript?label=typescript&style=flat-square) ![](https://img.shields.io/npm/v/json-server?label=json-server&style=flat-square) ![](https://img.shields.io/npm/v/concurrently?label=concurrently&style=flat-square) ![](https://img.shields.io/npm/v/react-router-dom?label=react-router-dom&style=flat-square):sunglasses:
+![](https://img.shields.io/npm/v/react?label=React&style=flat-square) ![](https://img.shields.io/npm/v/sass?label=sass&style=flat-square) ![](https://img.shields.io/npm/v/react-redux?label=React-redux&style=flat-square) ![](https://img.shields.io/npm/v/axios?label=axios&style=flat-square) ![](https://img.shields.io/npm/v/@reduxjs/toolkit?label=%40reduxjs%2Ftoolkit) ![](https://img.shields.io/npm/v/typescript?label=typescript&style=flat-square) ![](https://img.shields.io/npm/v/json-server?label=json-server&style=flat-square) ![](https://img.shields.io/npm/v/concurrently?label=concurrently&style=flat-square) ![](https://img.shields.io/npm/v/react-router-dom?label=react-router-dom&style=flat-square):sunglasses:
 
 ## The client part
 
